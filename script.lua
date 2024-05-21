@@ -121,7 +121,7 @@ function message(text)
 end
 
 local flags = {
-    speed = 0,
+    speed = 50,
     espdoors = false,
     espkeys = false,
     espitems = false,
@@ -137,12 +137,12 @@ local flags = {
     instapp = false,
     noseek = false,
     nogates = false,
-    nopuzzle = false,
+    nopuzzle = true,
     noa90 = false,
     noskeledoors = false,
-    noscreech = false,
+    noscreech = true,
     getcode = false,
-    roomsnolock = false,
+    roomsnolock = true,
     draweraura = false,
     autorooms = false,
 }
@@ -160,7 +160,7 @@ window_player.toggle("client glow",false,function(val)
     if val then
         local l = Instance.new("PointLight")
         l.Range = 10000
-        l.Brightness = 2
+        l.Brightness = 3
         l.Parent = char.PrimaryPart
        
         repeat task.wait() until not flags.light
@@ -621,7 +621,7 @@ window_esp.toggle("player esp",false,function(val)
     end
 end)
 
-window_esp.toggle("goldpile esp",false,function(val)
+window_esp.toggle("goldpile esp",true,function(val)
     flags.espgold = val
     
     if val then
